@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -29,19 +28,16 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         mRecyclerView = (RecyclerView) findViewById(R.id.cardList);
-        mAdapter = new CardViewAdapter(6, R.layout.card_view_item);
+        mAdapter = new CardViewAdapter(getApplicationContext(), R.layout.card_view_item);
 
         if (Utility.isLandscape(getApplicationContext())) {
             layoutManager = (getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK)
-                    >= Configuration.SCREENLAYOUT_SIZE_XLARGE ? new GridLayoutManager(getApplicationContext(), 3)
-                    : new GridLayoutManager(getApplicationContext(), 2);
+                    >= Configuration.SCREENLAYOUT_SIZE_XLARGE ? new GridLayoutManager(getApplicationContext(), 4)
+                    : new GridLayoutManager(getApplicationContext(), 3);
         } else {
             layoutManager = (getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK)
-                    >= Configuration.SCREENLAYOUT_SIZE_XLARGE ? new GridLayoutManager(getApplicationContext(), 2)
-                    : new LinearLayoutManager(
-                    getApplicationContext(),
-                    LinearLayoutManager.VERTICAL,
-                    false);
+                    >= Configuration.SCREENLAYOUT_SIZE_XLARGE ? new GridLayoutManager(getApplicationContext(), 3)
+                    : new GridLayoutManager(getApplicationContext(), 2);
         }
 
         mRecyclerView.setLayoutManager(layoutManager);
