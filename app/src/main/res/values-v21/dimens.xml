@@ -1,0 +1,7 @@
+<resources>
+
+    <dimen name="card_corner_radius">2dp</dimen>
+    <dimen name="card_margin_from_edge_screen">8dp</dimen>
+    <dimen name="card_margin_from_top_screen">8dp</dimen>
+
+</resources>

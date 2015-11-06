@@ -11,7 +11,7 @@
     <dimen name="card_corner_radius">2dp</dimen>
     <dimen name="card_margin_from_edge_screen">0dp</dimen>
     <dimen name="card_margin_from_top_screen">0dp</dimen>
-    <dimen name="card_header_text_size">24sp</dimen>
+    <dimen name="card_header_text_size">20sp</dimen>
     <dimen name="card_content_text_size">16sp</dimen>
     <dimen name="card_content_padding">16dp</dimen>
     <dimen name="card_content_padding_big">24dp</dimen>

@@ -10,11 +10,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.staremisto.smsnet.Constants;
 import com.staremisto.smsnet.R;
 import com.staremisto.smsnet.activity.DetailActivity;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -22,13 +22,14 @@ import java.util.List;
  */
 public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.CardViewViewHolder> {
 
+    protected final String[] titles;
     protected Context mContext;
     protected int layout;
-    protected List<Integer> list;
 
-    public CardViewAdapter(int count, int layout) {
+    public CardViewAdapter(Context context, int layout) {
+        mContext = context;
         this.layout = layout;
-        list = new ArrayList<>(count);
+        titles = Constants.CARD_TITLES;
     }
 
     @Override
@@ -42,7 +43,19 @@ public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.CardVi
     @Override
     public void onBindViewHolder(final CardViewViewHolder holder, final int position) {
 
-        holder.tvTitle.setText("Title ".concat(String.valueOf(position)));
+        holder.tvTitle.setText(Constants.CARD_TITLES[position]);
+
+        if (Constants.CARD_TITLES[position].equals(Constants.CARD_TITLES[0])) {
+            // TODO EMERGENCY
+        } else if (Constants.CARD_TITLES[position].equals(Constants.CARD_TITLES[1])) {
+            Glide.with(mContext)
+                    .load(R.drawable.ic_google_translate)
+                    .fitCenter()
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .into(holder.ivTitle);
+        } else if (Constants.CARD_TITLES[position].equals(Constants.CARD_TITLES[2])) {
+            // TODO WIKIPEDIA
+        }
 
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,7 +68,7 @@ public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.CardVi
 
     @Override
     public int getItemCount() {
-        return 6;
+        return Constants.CARD_TITLES.length;
     }
 
     public class CardViewViewHolder extends RecyclerView.ViewHolder {
