@@ -16,6 +16,7 @@ import com.staremisto.smsnet.Constants;
 import com.staremisto.smsnet.R;
 import com.staremisto.smsnet.activity.BBCActivity;
 import com.staremisto.smsnet.activity.DetailActivity;
+import com.staremisto.smsnet.activity.WeatherActivity;
 import com.staremisto.smsnet.activity.WikipediaActivity;
 
 
@@ -50,7 +51,11 @@ public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.CardVi
         holder.tvTitle.setText(Constants.CARD_TITLES[position]);
 
         if (Constants.CARD_TITLES[position].equals(Constants.CARD_TITLES[0])) {
-            // TODO EMERGENCY
+            Glide.with(mContext)
+                    .load(R.drawable.ic_bbc)
+                    .fitCenter()
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .into(holder.ivTitle);
 
             intent = new Intent(mContext, BBCActivity.class);
         } else if (Constants.CARD_TITLES[position].equals(Constants.CARD_TITLES[1])) {
@@ -69,6 +74,14 @@ public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.CardVi
                     .into(holder.ivTitle);
 
             intent = new Intent(mContext, WikipediaActivity.class);
+        } else if (Constants.CARD_TITLES[position].equals(Constants.CARD_TITLES[3])) {
+            Glide.with(mContext)
+                    .load(R.drawable.art_clear)
+                    .fitCenter()
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .into(holder.ivTitle);
+
+            intent = new Intent(mContext, WeatherActivity.class);
         }
 
         final Intent finalIntent = intent;
