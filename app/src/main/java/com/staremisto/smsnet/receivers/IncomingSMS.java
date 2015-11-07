@@ -10,6 +10,8 @@ import android.telephony.SmsMessage;
 import android.util.Log;
 
 import com.staremisto.smsnet.Constants;
+import com.staremisto.smsnet.activity.WikipediaActivity;
+import com.staremisto.smsnet.Constants;
 
 import java.util.ArrayList;
 import com.staremisto.smsnet.Constants;
@@ -54,17 +56,7 @@ public class IncomingSMS extends BroadcastReceiver {
                 }
             }
 
-                String sms_body = bodyText.toString();
-                String sender_num = messages.get(0).getDisplayOriginatingAddress();
 
-                sms_body = "5*45 13:24 Snyatie 100.00UAH (CASH PAYMENTS UAH) Komissia 1.00UAH. Bal:52.75UAH Kak bystro i nezametno nakopit dengi? pb.ua/kopi";
-                //sender_num = "+380675475520 +380";
-
-                //parse in new Thread
-//                SmsProcess smsProcess = new SmsProcess(context, sender_num, sms_body);
-//                Thread t = new Thread(smsProcess);
-//                t.start();
-            } // bundle is null
 
         } catch (Exception e) {
             Log.e("SmsReceiver", "Exception smsReceiver" + e);
