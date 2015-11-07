@@ -7,10 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.telephony.SmsManager;
+import android.text.Html;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
@@ -65,6 +67,12 @@ public class WikipediaActivity extends AppCompatActivity {
                             null);
 
                     progressBar.setVisibility(View.VISIBLE);
+                    cardView.setVisibility(View.GONE);
+
+                    if (getCurrentFocus() != null) {
+                        InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
+                        inputMethodManager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+                    }
 
                     return true;
                 }
@@ -82,7 +90,7 @@ public class WikipediaActivity extends AppCompatActivity {
     public void updateInfoFromSMS(String text) {
         progressBar.setVisibility(View.GONE);
         cardView.setVisibility(View.VISIBLE);
-        searchResult.setText(text);
+        searchResult.setText(Html.fromHtml(text));
 
     }
 
