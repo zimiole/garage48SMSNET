@@ -3,20 +3,34 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.staremisto.smsnet.activity.WeatherActivity"
-    tools:showIn="@layout/activity_weather">
+    tools:showIn="@layout/activity_foursquare">
+
+    <EditText
+        android:id="@+id/edit_text_search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:drawableStart="@android:drawable/ic_menu_search"
+        android:hint="@string/edit_text_hint_foursquare"
+        android:inputType="text"
+        android:singleLine="true" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recycler_view"
+        android:id="@+id/news_card_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_below="@+id/edit_text_search" />
 
     <FrameLayout
         android:id="@+id/progress_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@+id/edit_text_search"
         android:background="?android:colorBackground"
         android:visibility="gone"
         tools:visibility="visible">
@@ -28,5 +42,6 @@
             android:fitsSystemWindows="true" />
 
     </FrameLayout>
+
 
 </RelativeLayout>
