@@ -53,16 +53,13 @@ public class DirectionActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-                Log.d("Res",prefs.getString("lat",""));
-                Toast.makeText(getBaseContext(),prefs.getString("lat",""),Toast.LENGTH_LONG).show();
-                Log.d("Res2",prefs.getString("lon",""));
                 SharedPreferences.Editor editor = prefs.edit();
                 editor.putInt(Constants.SHARED_PREF_ACTIVITY_TYPE_KEY, Constants.SHARED_PREF_DIRECTION_KEY);
                 editor.apply();
                 SmsManager smsManager = SmsManager.getDefault();
                 smsManager.sendTextMessage(Constants.SERVER_PHONE,
                         null,
-                        Constants.ATTR_DIRECTIONS.concat(prefs.getString("lat", "") + "|" + prefs.getString("lon", "") + "|" + searchTxt.getText().toString()),
+                        Constants.ATTR_DIRECTIONS.concat(prefs.getString("lat", "")).concat("|").concat(prefs.getString("lon", "")).concat("|").concat(searchTxt.getText().toString()).concat("|").concat("walking"),
                         null,
                         null);
             }
@@ -79,8 +76,55 @@ public class DirectionActivity extends AppCompatActivity {
         tabLayout = (TabLayout) findViewById(R.id.direction_tabs);
         searchTxt = (EditText)findViewById(R.id.search_destination);
         tabLayout.setupWithViewPager(viewPager);
+        tabLayout.setOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
+            @Override
+            public void onTabSelected(TabLayout.Tab tab) {
+                switch(tab.getPosition()){
+                    case 0:
+                        break;
+                    case 1:
+                        if(((PageFragment)mAdapter.getItem(tabLayout.getSelectedTabPosition())).savelist ==null){
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                            SharedPreferences.Editor editor = prefs.edit();
+                            editor.putInt(Constants.SHARED_PREF_ACTIVITY_TYPE_KEY, Constants.SHARED_PREF_DIRECTION_KEY);
+                            editor.apply();
+                            SmsManager smsManager = SmsManager.getDefault();
+                            smsManager.sendTextMessage(Constants.SERVER_PHONE,
+                                    null,
+                                    Constants.ATTR_DIRECTIONS.concat(prefs.getString("lat", "")).concat("|").concat(prefs.getString("lon", "")).concat("|").concat(searchTxt.getText().toString()).concat("|").concat("transit"),
+                                    null,
+                                    null);
+                        }
+                        break;
+                    case 2:
+                        if(((PageFragment)mAdapter.getItem(tabLayout.getSelectedTabPosition())).savelist ==null){
+                            SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                            SharedPreferences.Editor editor = prefs.edit();
+                            editor.putInt(Constants.SHARED_PREF_ACTIVITY_TYPE_KEY, Constants.SHARED_PREF_DIRECTION_KEY);
+                            editor.apply();
+                            SmsManager smsManager = SmsManager.getDefault();
+                            smsManager.sendTextMessage(Constants.SERVER_PHONE,
+                                    null,
+                                    Constants.ATTR_DIRECTIONS.concat(prefs.getString("lat", "")).concat("|").concat(prefs.getString("lon", "")).concat("|").concat(searchTxt.getText().toString()).concat("|").concat("driving"),
+                                    null,
+                                    null);
+                        }
+                        break;
+                }
+            }
 
+            @Override
+            public void onTabUnselected(TabLayout.Tab tab) {
+
+            }
+
+            @Override
+            public void onTabReselected(TabLayout.Tab tab) {
+
+            }
+        });
     }
+
     @Override
     protected void onStart() {
         super.onStart();

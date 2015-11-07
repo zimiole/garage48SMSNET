@@ -25,6 +25,7 @@ public class PageFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private DirectionsCardViewAdapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
+    public List<RouteInstruction> savelist=new ArrayList<>();
     public static PageFragment newInstance(int page) {
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, page);
@@ -44,8 +45,8 @@ public class PageFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_page, container, false);
         mRecyclerView = (RecyclerView) view.findViewById(R.id.directives_card_list);
-        List<RouteInstruction> route = new ArrayList<>();
-        mAdapter = new DirectionsCardViewAdapter(getActivity().getApplicationContext(), R.layout.direction_card_view_item_w,route);
+
+        mAdapter = new DirectionsCardViewAdapter(getActivity().getApplicationContext(), R.layout.direction_card_view_item_w,savelist);
 
 
         layoutManager =new GridLayoutManager(getActivity().getApplicationContext(), 1);
@@ -64,6 +65,7 @@ public class PageFragment extends Fragment {
 
             array.add(new RouteInstruction(arr[0], arr[1], Html.fromHtml(arr[2]).toString()));
         }
+        savelist = array;
         mAdapter.setTitles(array);
         mAdapter.notifyDataSetChanged();
     }
