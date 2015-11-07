@@ -15,6 +15,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.staremisto.smsnet.Constants;
 import com.staremisto.smsnet.R;
 import com.staremisto.smsnet.activity.DetailActivity;
+import com.staremisto.smsnet.activity.WikipediaActivity;
 
 
 /**
@@ -43,25 +44,37 @@ public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.CardVi
     @Override
     public void onBindViewHolder(final CardViewViewHolder holder, final int position) {
 
+        Intent intent = null;
+
         holder.tvTitle.setText(Constants.CARD_TITLES[position]);
 
         if (Constants.CARD_TITLES[position].equals(Constants.CARD_TITLES[0])) {
             // TODO EMERGENCY
+
+            intent = new Intent(mContext, DetailActivity.class);
         } else if (Constants.CARD_TITLES[position].equals(Constants.CARD_TITLES[1])) {
             Glide.with(mContext)
                     .load(R.drawable.ic_google_translate)
                     .fitCenter()
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(holder.ivTitle);
+
+            intent = new Intent(mContext, DetailActivity.class);
         } else if (Constants.CARD_TITLES[position].equals(Constants.CARD_TITLES[2])) {
-            // TODO WIKIPEDIA
+            Glide.with(mContext)
+                    .load(R.drawable.ic_wikipedia)
+                    .fitCenter()
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .into(holder.ivTitle);
+
+            intent = new Intent(mContext, WikipediaActivity.class);
         }
 
+        final Intent finalIntent = intent;
         holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, DetailActivity.class);
-                mContext.startActivity(intent);
+                mContext.startActivity(finalIntent);
             }
         });
     }
