@@ -18,5 +18,6 @@ public interface Constants {
     int SHARED_PREF_WIKIPEDIA_KEY = 0;
 
     String ATTR_WIKIPEDIA = "1|";
+    String ATTR_WEATHER = "7|";
 
 }
