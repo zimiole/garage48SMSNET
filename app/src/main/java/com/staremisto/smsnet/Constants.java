@@ -28,6 +28,7 @@ public interface Constants {
     String SHARED_PREF_CITY_KEY = "City";
     String SHARED_PREF_CITY_FOURSQUARE_KEY = "City_Foursquare";
     int SHARED_PREF_FOURSQUARE_KEY = 4;
+    int SHARED_PREF_TRANSLATE_KEY = 9;
 
     String ATTR_WIKIPEDIA = "1|";
     String ATTR_WEATHER = "7|";
@@ -35,6 +36,7 @@ public interface Constants {
 
     String ATTR_DIRECTIONS = "2|";
     String ATTR_FOURSQUARE = "4|";
+    String ATTR_TRANSLATE = "9|";
 
 
 

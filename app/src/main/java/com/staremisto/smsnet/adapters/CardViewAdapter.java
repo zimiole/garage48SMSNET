@@ -28,6 +28,7 @@ import com.staremisto.smsnet.activity.BBCActivity;
 import com.staremisto.smsnet.activity.DetailActivity;
 import com.staremisto.smsnet.activity.DirectionActivity;
 import com.staremisto.smsnet.activity.FoursquareActivity;
+import com.staremisto.smsnet.activity.TranslateActivity;
 import com.staremisto.smsnet.activity.WeatherActivity;
 import com.staremisto.smsnet.activity.WikipediaActivity;
 
@@ -77,7 +78,7 @@ public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.CardVi
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .into(holder.ivTitle);
 
-            intent = new Intent(mContext, DetailActivity.class);
+            intent = new Intent(mContext, TranslateActivity.class);
         } else if (Constants.CARD_TITLES[position].equals(Constants.CARD_TITLES[2])) {
             Glide.with(mContext)
                     .load(R.drawable.ic_wikipedia)

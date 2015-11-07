@@ -64,6 +64,7 @@
             android:minHeight="50dp"
             android:layout_margin="10dp"
             android:text="Responce"
+            android:id="@+id/recieveText"
             android:textColor="#fff"
             android:textAppearance="?android:attr/textAppearanceLarge"
             />

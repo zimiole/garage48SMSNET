@@ -6,12 +6,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.load.engine.Resource;
 import com.staremisto.smsnet.R;
 import com.staremisto.smsnet.data.RouteInstruction;
 
 import java.util.List;
+import java.util.ResourceBundle;
 
 /**
  * Created by orodr_000 on 07.11.2015.
@@ -50,6 +53,17 @@ public class DirectionsCardViewAdapter extends RecyclerView.Adapter<DirectionsCa
         holder.tvTitle.setText(titles.get(position).getInstruction());
         holder.tvDistance.setText(titles.get(position).getDistance());
         holder.tvTime.setText(titles.get(position).getDuration());
+        if(titles.get(position).getInstruction().startsWith("Turn left")){
+            holder.arrowView.setImageResource(R.drawable.ic_arrow_left_black_18dp);
+        }else if(titles.get(position).getInstruction().startsWith("Turn right")){
+            holder.arrowView.setImageResource(R.drawable.ic_arrow_right_black_18dp);
+        }else if(titles.get(position).getInstruction().startsWith("Slight left")){
+            holder.arrowView.setImageResource(R.drawable.ic_arrow_top_left_black_18dp);
+        }else if(titles.get(position).getInstruction().startsWith("Slight right")){
+            holder.arrowView.setImageResource(R.drawable.ic_arrow_top_right_black_18dp);
+        }else{
+            holder.arrowView.setImageResource(R.drawable.ic_arrow_up_black_18dp);
+        }
 
 
     }
@@ -66,6 +80,7 @@ public class DirectionsCardViewAdapter extends RecyclerView.Adapter<DirectionsCa
         public TextView tvDistance;
         public TextView tvTime;
         public CardView cardView;
+        public ImageView arrowView;
 
         public CardViewViewHolder(View itemView) {
             super(itemView);
@@ -74,6 +89,7 @@ public class DirectionsCardViewAdapter extends RecyclerView.Adapter<DirectionsCa
             tvTitle = (TextView) itemView.findViewById(R.id.tv_title);
             tvDistance = (TextView) itemView.findViewById(R.id.tv_distance);
             tvTime = (TextView) itemView.findViewById(R.id.tv_time);
+            arrowView = (ImageView) itemView.findViewById(R.id.direction_iv);
         }
     }
 }
