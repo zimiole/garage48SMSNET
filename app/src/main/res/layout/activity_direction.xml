@@ -6,8 +6,10 @@
     android:layout_height="match_parent" android:fitsSystemWindows="true"
     tools:context="com.staremisto.smsnet.activity.DirectionActivity">
 
-    <android.support.design.widget.AppBarLayout android:layout_height="wrap_content"
-        android:layout_width="match_parent" android:theme="@style/AppTheme.AppBarOverlay">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar android:id="@+id/toolbar"
             android:layout_width="match_parent" android:layout_height="?attr/actionBarSize"
@@ -18,9 +20,9 @@
                 />
             </android.support.v7.widget.Toolbar>
         <android.support.design.widget.TabLayout
+            android:id="@+id/direction_tabs"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/direction-tabs">
+            android:layout_height="wrap_content">
 
         </android.support.design.widget.TabLayout>
 

@@ -8,7 +8,8 @@ public interface Constants {
             "BBC",
             "TRANSLATE",
             "WIKIPEDIA",
-            "WEATHER"
+            "WEATHER",
+            "FOURSQUARE"
     };
 
     String SERVER_PHONE = "+380673696780";
@@ -17,9 +18,14 @@ public interface Constants {
     String SHARED_PREF_ACTIVITY_TYPE_KEY = "activity_type";
     int SHARED_PREF_WIKIPEDIA_KEY = 0;
     int SHARED_PREF_BBC_KEY = 5;
+    int SHARED_PREF_WEATHER_KEY = 7;
+    String SHARED_PREF_CITY_KEY = "City";
+    String SHARED_PREF_CITY_FOURSQUARE_KEY = "City_Foursquare";
+    int SHARED_PREF_FOURSQUARE_KEY = 4;
 
     String ATTR_WIKIPEDIA = "1|";
     String ATTR_WEATHER = "7|";
     String ATTR_BBC = "5|";
+    String ATTR_FOURSQUARE = "4|";
 
 }

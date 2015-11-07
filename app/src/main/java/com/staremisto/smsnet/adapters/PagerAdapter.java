@@ -10,8 +10,6 @@ import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
 
-import com.staremisto.smsnet.R;
-
 import java.util.List;
 
 /**
@@ -21,9 +19,9 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
     List<Fragment> fragments;
     Context context;
     private int[] imageResId = {
-            R.drawable.ic_one,
-            R.drawable.ic_two,
-            R.drawable.ic_three
+//            R.drawable.ic_one,
+//            R.drawable.ic_two,
+//            R.drawable.ic_three
     };
     public PagerAdapter(FragmentManager fm,List<Fragment> fragments,Context context) {
         super(fm);

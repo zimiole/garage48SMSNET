@@ -11,11 +11,8 @@ import android.util.Log;
 
 import com.staremisto.smsnet.Constants;
 import com.staremisto.smsnet.activity.BBCActivity;
-import com.staremisto.smsnet.activity.WikipediaActivity;
-import com.staremisto.smsnet.Constants;
-
-import java.util.ArrayList;
-import com.staremisto.smsnet.Constants;
+import com.staremisto.smsnet.activity.FoursquareActivity;
+import com.staremisto.smsnet.activity.WeatherActivity;
 import com.staremisto.smsnet.activity.WikipediaActivity;
 
 public class IncomingSMS extends BroadcastReceiver {
@@ -44,12 +41,22 @@ public class IncomingSMS extends BroadcastReceiver {
                         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                         int result = prefs.getInt(Constants.SHARED_PREF_ACTIVITY_TYPE_KEY, -1);
 
+                        System.err.println("!!!!!!!!!!!!!!!!!!!!!!!!");
+                        System.err.println(result);
+                        System.err.println(Constants.SHARED_PREF_FOURSQUARE_KEY);
+
                         switch (result) {
                             case Constants.SHARED_PREF_WIKIPEDIA_KEY:
                                 WikipediaActivity.getInstance().updateInfoFromSMS(stringBuilder.toString());
                                 break;
                             case Constants.SHARED_PREF_BBC_KEY:
                                 BBCActivity.getInstance().updateInfoFromSMS(stringBuilder.toString());
+                                break;
+                            case Constants.SHARED_PREF_WEATHER_KEY:
+                                WeatherActivity.getInstance().updateInfoFromSMS(stringBuilder.toString());
+                                break;
+                            case Constants.SHARED_PREF_FOURSQUARE_KEY:
+                                FoursquareActivity.getInstance().updateInfoFromSMS(stringBuilder.toString());
                                 break;
                             default:
                                 break;
