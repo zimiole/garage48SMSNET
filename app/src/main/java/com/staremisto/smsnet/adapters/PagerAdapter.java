@@ -4,28 +4,34 @@ import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ImageSpan;
 
+
 import com.staremisto.smsnet.R;
+import com.staremisto.smsnet.fragments.PageFragment;
 
 import java.util.List;
 
 /**
  * Created by orodr_000 on 07.11.2015.
  */
-public class PagerAdapter extends FragmentStatePagerAdapter {
-    List<Fragment> fragments;
+public class PagerAdapter extends FragmentPagerAdapter {
+    final int PAGE_COUNT = 3;
+    List<PageFragment> fragments;
     Context context;
     private int[] imageResId = {
-            R.drawable.ic_one,
-            R.drawable.ic_two,
-            R.drawable.ic_three
+
+            R.drawable.ic_walk_white_24dp,
+            R.drawable.ic_bus_white_24dp,
+            R.drawable.ic_car_white_24dp
+
     };
-    public PagerAdapter(FragmentManager fm,List<Fragment> fragments,Context context) {
+    public PagerAdapter(FragmentManager fm,Context context, List<PageFragment> fragments) {
         super(fm);
         this.fragments = fragments;
         this.context = context;
@@ -38,10 +44,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        if(fragments != null) {
-            return fragments.size();
-        }
-        return 0;
+        return PAGE_COUNT;
     }
     @Override
     public CharSequence getPageTitle(int position) {
