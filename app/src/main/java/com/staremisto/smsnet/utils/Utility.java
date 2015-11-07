@@ -8,6 +8,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.DisplayMetrics;
 
+import com.staremisto.smsnet.R;
+
 public class Utility {
 
     /**
@@ -80,6 +82,38 @@ public class Utility {
         DisplayMetrics metrics = new DisplayMetrics();
         activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
         return Math.min(metrics.widthPixels / metrics.density, metrics.heightPixels / metrics.density);
+    }
+
+    /**
+     * Helper method to provide the art resource id according to the weather condition id returned
+     * by the OpenWeatherMap call.
+     *
+     * @param weatherId from OpenWeatherMap API response
+     * @return resource id for the corresponding image. -1 if no relation is found.
+     */
+    public static int getArtResourceForWeatherCondition(String weatherId) {
+        switch (weatherId) {
+            case "Clear sky":
+                return R.drawable.art_clear;
+            case "Few clouds":
+                return R.drawable.art_light_clouds;
+            case "Scattered clouds":
+                return R.drawable.art_clouds;
+            case "Broken clouds":
+                return R.drawable.art_clouds;
+            case "Shower rain":
+                return R.drawable.art_light_rain;
+            case "Rain":
+                return R.drawable.art_rain;
+            case "Thunderstorm":
+                return R.drawable.art_storm;
+            case "Snow":
+                return R.drawable.art_snow;
+            case "Mist":
+                return R.drawable.art_fog;
+            default:
+                return -1;
+        }
     }
 
 }
