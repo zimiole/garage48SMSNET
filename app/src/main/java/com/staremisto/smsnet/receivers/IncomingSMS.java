@@ -10,6 +10,7 @@ import android.telephony.SmsMessage;
 import android.util.Log;
 
 import com.staremisto.smsnet.Constants;
+import com.staremisto.smsnet.activity.BBCActivity;
 import com.staremisto.smsnet.activity.WikipediaActivity;
 import com.staremisto.smsnet.Constants;
 
@@ -46,6 +47,9 @@ public class IncomingSMS extends BroadcastReceiver {
                         switch (result) {
                             case Constants.SHARED_PREF_WIKIPEDIA_KEY:
                                 WikipediaActivity.getInstance().updateInfoFromSMS(stringBuilder.toString());
+                                break;
+                            case Constants.SHARED_PREF_BBC_KEY:
+                                BBCActivity.getInstance().updateInfoFromSMS(stringBuilder.toString());
                                 break;
                             default:
                                 break;
