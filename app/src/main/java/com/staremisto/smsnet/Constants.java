@@ -4,9 +4,10 @@ public interface Constants {
     String BASE_URL = "http://www.opengamer.com.ua";
 
     String[] CARD_TITLES = {
-            "EMERGENCY",
+            "BBC",
             "TRANSLATE",
-            "WIKIPEDIA"
+            "WIKIPEDIA",
+            "WEATHER"
     };
 
     String SERVER_PHONE = "+380673696780";
