@@ -14,6 +14,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.staremisto.smsnet.Constants;
 import com.staremisto.smsnet.R;
+import com.staremisto.smsnet.activity.BBCActivity;
 import com.staremisto.smsnet.activity.DetailActivity;
 import com.staremisto.smsnet.activity.WikipediaActivity;
 
@@ -51,7 +52,7 @@ public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.CardVi
         if (Constants.CARD_TITLES[position].equals(Constants.CARD_TITLES[0])) {
             // TODO EMERGENCY
 
-            intent = new Intent(mContext, DetailActivity.class);
+            intent = new Intent(mContext, BBCActivity.class);
         } else if (Constants.CARD_TITLES[position].equals(Constants.CARD_TITLES[1])) {
             Glide.with(mContext)
                     .load(R.drawable.ic_google_translate)

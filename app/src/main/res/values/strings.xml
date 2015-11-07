@@ -98,4 +98,5 @@
     </string>
 
     <string name="title_activity_translate">TranslateActivity</string>
+    <string name="title_activity_bbc">BBCActivity</string>
 </resources>
