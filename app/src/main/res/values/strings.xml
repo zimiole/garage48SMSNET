@@ -9,6 +9,9 @@
     <string name="edit_text_hint_wikipedia">Wikipedia Search</string>
     <string name="edit_text_hint_foursquare">Foursquare Search</string>
 
+    <string name="text_your_current_location">Your current location</string>
+    <string name="text_enable_gps">Enable gps to receive location</string>
+
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
