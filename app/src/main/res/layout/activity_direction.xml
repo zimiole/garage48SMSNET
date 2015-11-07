@@ -17,13 +17,15 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/search_destination"
                 />
             </android.support.v7.widget.Toolbar>
         <android.support.design.widget.TabLayout
             android:id="@+id/direction_tabs"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
+            android:layout_height="wrap_content"
+            style="@style/MyCustomTabLayout"
+            app:tabGravity="fill">
         </android.support.design.widget.TabLayout>
 
     </android.support.design.widget.AppBarLayout>
