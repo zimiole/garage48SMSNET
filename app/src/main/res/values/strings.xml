@@ -98,4 +98,5 @@
     </string>
     <string name="title_activity_weather">WeatherActivity</string>
 
+    <string name="title_activity_translate">TranslateActivity</string>
 </resources>

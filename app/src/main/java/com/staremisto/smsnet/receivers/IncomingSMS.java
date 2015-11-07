@@ -11,6 +11,11 @@ import android.util.Log;
 
 import com.staremisto.smsnet.Constants;
 import com.staremisto.smsnet.activity.WikipediaActivity;
+import com.staremisto.smsnet.Constants;
+
+import java.util.ArrayList;
+import com.staremisto.smsnet.Constants;
+import com.staremisto.smsnet.activity.WikipediaActivity;
 
 public class IncomingSMS extends BroadcastReceiver {
 
@@ -50,6 +55,7 @@ public class IncomingSMS extends BroadcastReceiver {
                     }
                 }
             }
+
 
 
         } catch (Exception e) {
