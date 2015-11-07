@@ -12,6 +12,7 @@ import android.text.SpannableString;
 import android.text.style.ImageSpan;
 
 
+
 import com.staremisto.smsnet.R;
 import com.staremisto.smsnet.fragments.PageFragment;
 
@@ -29,8 +30,9 @@ public class PagerAdapter extends FragmentPagerAdapter {
             R.drawable.ic_walk_white_24dp,
             R.drawable.ic_bus_white_24dp,
             R.drawable.ic_car_white_24dp
-
     };
+
+
     public PagerAdapter(FragmentManager fm,Context context, List<PageFragment> fragments) {
         super(fm);
         this.fragments = fragments;

@@ -134,11 +134,13 @@ public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.CardVi
             });
 
             intent = new Intent(mContext, WeatherActivity.class);
+
         }else if (Constants.CARD_TITLES[position].equals(Constants.CARD_TITLES[4])) {
 
 
             intent = new Intent(mContext, DirectionActivity.class);
         } else if (Constants.CARD_TITLES[position].equals(Constants.CARD_TITLES[5])) {
+
             Glide.with(mContext)
                     .load(R.drawable.ic_foursquare)
                     .fitCenter()
