@@ -16,7 +16,9 @@ public interface Constants {
 
     String SHARED_PREF_ACTIVITY_TYPE_KEY = "activity_type";
     int SHARED_PREF_WIKIPEDIA_KEY = 0;
+    int SHARED_PREF_BBC_KEY = 5;
 
     String ATTR_WIKIPEDIA = "1|";
+    String ATTR_BBC = "5|";
 
 }
