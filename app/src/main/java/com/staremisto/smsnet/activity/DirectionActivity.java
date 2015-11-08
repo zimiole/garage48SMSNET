@@ -2,32 +2,23 @@ package com.staremisto.smsnet.activity;
 
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.staremisto.smsnet.Constants;
 import com.staremisto.smsnet.R;
-import com.staremisto.smsnet.adapters.DirectionsCardViewAdapter;
-import com.staremisto.smsnet.adapters.NewsCardViewAdapter;
 import com.staremisto.smsnet.adapters.PagerAdapter;
-import com.staremisto.smsnet.data.RouteInstruction;
 import com.staremisto.smsnet.fragments.PageFragment;
 
 import java.util.ArrayList;
@@ -36,8 +27,8 @@ import java.util.List;
 public class DirectionActivity extends AppCompatActivity {
     private static DirectionActivity instance;
     ViewPager viewPager;
-    private EditText searchTxt;
     TabLayout tabLayout;
+    private EditText searchTxt;
     private PagerAdapter mAdapter;
     private ProgressDialog progressDialog;
     public static DirectionActivity getInstance() {
@@ -56,6 +47,7 @@ public class DirectionActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         viewPager = (ViewPager) findViewById(R.id.pager);
@@ -68,8 +60,8 @@ public class DirectionActivity extends AppCompatActivity {
         viewPager.setOffscreenPageLimit(3);
         // Give the TabLayout the ViewPager
         tabLayout = (TabLayout) findViewById(R.id.direction_tabs);
-        tabLayout.setVisibility(View.INVISIBLE);
-        viewPager.setVisibility(View.INVISIBLE);
+        //tabLayout.setVisibility(View.INVISIBLE);
+        //viewPager.setVisibility(View.INVISIBLE);
         searchTxt = (EditText)findViewById(R.id.search_destination);
         searchTxt.setSingleLine(true);
         searchTxt.setOnKeyListener(new View.OnKeyListener() {
@@ -201,10 +193,20 @@ public class DirectionActivity extends AppCompatActivity {
         progressDialog.dismiss();
                 ((PageFragment) mAdapter.getItem(viewPager.getCurrentItem())).updateInfoFromSMS(text);
 
-        /*progressBar.setVisibility(View.GONE);
-        cardView.setVisibility(View.VISIBLE);
-        searchResult.setText(text);*/
 
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home: {
+                finish();
+                return true;
+            }
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 }

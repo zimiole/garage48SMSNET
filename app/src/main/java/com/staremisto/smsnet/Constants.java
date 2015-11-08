@@ -2,8 +2,8 @@ package com.staremisto.smsnet;
 
 public interface Constants {
 
-    String SERVER_PHONE = "+380673696780";
-//    String SERVER_PHONE = "+380634668132";
+    // String SERVER_PHONE = "+380673696780";
+    String SERVER_PHONE = "+380634668132";
 
     String SHARED_PREF_ACTIVITY_TYPE_KEY = "activity_type";
     int SHARED_PREF_WIKIPEDIA_KEY = 0;

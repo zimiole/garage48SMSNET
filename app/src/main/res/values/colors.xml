@@ -6,4 +6,6 @@
 
     <color name="oldPrimary">#3F51B5</color>
     <color name="lightBlue">#BBDEFB</color>
+
+    <color name="edittextHint">#4effffff</color>
 </resources>
