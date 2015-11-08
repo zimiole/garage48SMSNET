@@ -84,11 +84,30 @@ public class DirectionActivity extends AppCompatActivity {
                             editor.putInt(Constants.SHARED_PREF_ACTIVITY_TYPE_KEY, Constants.SHARED_PREF_DIRECTION_KEY);
                             editor.apply();
                             SmsManager smsManager = SmsManager.getDefault();
-                            smsManager.sendTextMessage(Constants.SERVER_PHONE,
-                                    null,
-                                    Constants.ATTR_DIRECTIONS.concat(prefs.getString("lat", "")).concat("|").concat(prefs.getString("lon", "")).concat("|").concat(searchTxt.getText().toString()).concat("|").concat("w"),
-                                    null,
-                                    null);
+                            switch(viewPager.getCurrentItem()){
+                                case 0:
+                                    smsManager.sendTextMessage(Constants.SERVER_PHONE,
+                                            null,
+                                            Constants.ATTR_DIRECTIONS.concat(prefs.getString("lat", "")).concat("|").concat(prefs.getString("lon", "")).concat("|").concat(searchTxt.getText().toString()).concat("|").concat("w"),
+                                            null,
+                                            null);
+                                    break;
+                                case 1:
+                                    smsManager.sendTextMessage(Constants.SERVER_PHONE,
+                                            null,
+                                            Constants.ATTR_DIRECTIONS.concat(prefs.getString("lat", "")).concat("|").concat(prefs.getString("lon", "")).concat("|").concat(searchTxt.getText().toString()).concat("|").concat("t"),
+                                            null,
+                                            null);
+                                    break;
+                                case 2:
+                                    smsManager.sendTextMessage(Constants.SERVER_PHONE,
+                                            null,
+                                            Constants.ATTR_DIRECTIONS.concat(prefs.getString("lat", "")).concat("|").concat(prefs.getString("lon", "")).concat("|").concat(searchTxt.getText().toString()).concat("|").concat("d"),
+                                            null,
+                                            null);
+                                    break;
+                            }
+
                             progressDialog.show();
 
                             //progressBar.setVisibility(View.VISIBLE);
