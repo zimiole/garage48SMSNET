@@ -103,9 +103,10 @@
     </string>
     <string name="title_activity_weather">Weather</string>
 
-    <string name="title_activity_translate">TranslateActivity</string>
+    <string name="title_activity_translate">Translate</string>
     <string name="title_activity_bbc">BBCActivity</string>
     <string name="title_activity_direction">Directions</string>
     <string name="title_activity_foursquare">Foursquare Search</string>
     <string name="title_activity_emergency">EmergencyActivity</string>
+    <string name="error">Error</string>
 </resources>

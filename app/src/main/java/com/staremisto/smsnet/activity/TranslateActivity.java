@@ -3,12 +3,11 @@ package com.staremisto.smsnet.activity;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.telephony.SmsManager;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -16,7 +15,6 @@ import android.widget.TextView;
 
 import com.staremisto.smsnet.Constants;
 import com.staremisto.smsnet.R;
-import com.staremisto.smsnet.fragments.PageFragment;
 
 public class TranslateActivity extends AppCompatActivity {
     private static TranslateActivity instance;
@@ -33,6 +31,8 @@ public class TranslateActivity extends AppCompatActivity {
         setContentView(R.layout.activity_translate);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         search = (EditText) findViewById(R.id.search_text);
         response = (TextView) findViewById(R.id.recieveText);
         search.setSingleLine(true);
@@ -82,6 +82,18 @@ public class TranslateActivity extends AppCompatActivity {
         cardView.setVisibility(View.VISIBLE);
         searchResult.setText(text);*/
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home: {
+                finish();
+                return true;
+            }
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 }
