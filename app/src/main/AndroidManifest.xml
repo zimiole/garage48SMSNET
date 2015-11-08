@@ -66,7 +66,12 @@
         <activity
             android:name=".activity.FoursquareActivity"
             android:label="@string/title_activity_foursquare"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activity.EmergencyActivity"
+            android:label="@string/title_activity_emergency"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
     </application>
 
 </manifest>

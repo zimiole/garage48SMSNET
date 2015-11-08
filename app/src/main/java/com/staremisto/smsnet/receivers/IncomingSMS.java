@@ -36,39 +36,37 @@ public class IncomingSMS extends BroadcastReceiver {
                         for (int i = 0; i < msgs.length; i++) {
                             msgs[i] = SmsMessage.createFromPdu((byte[]) pdus[i]);
                             msg_from = msgs[i].getOriginatingAddress();
-
                             String msgBody = msgs[i].getMessageBody();
                             Log.d("SMSHandler", "msgBody " + msgBody);
                             stringBuilder.append(msgBody);
                         }
 
                         if (msg_from != null && msg_from.equals(Constants.SERVER_PHONE)) {
-
+                            
                             SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
                             int result = prefs.getInt(Constants.SHARED_PREF_ACTIVITY_TYPE_KEY, -1);
 
-                            switch (result) {
-                                case Constants.SHARED_PREF_WIKIPEDIA_KEY:
-                                    WikipediaActivity.getInstance().updateInfoFromSMS(stringBuilder.toString());
-                                    break;
-                                case Constants.SHARED_PREF_BBC_KEY:
-                                    BBCActivity.getInstance().updateInfoFromSMS(stringBuilder.toString());
-                                    break;
-                                case Constants.SHARED_PREF_DIRECTION_KEY:
-                                    DirectionActivity.getInstance().updateInfoFromSMS(stringBuilder.toString());
-
-                                case Constants.SHARED_PREF_WEATHER_KEY:
-                                    WeatherActivity.getInstance().updateInfoFromSMS(stringBuilder.toString());
-                                    break;
-                                case Constants.SHARED_PREF_FOURSQUARE_KEY:
-                                    FoursquareActivity.getInstance().updateInfoFromSMS(stringBuilder.toString());
-                                    break;
-                                case Constants.SHARED_PREF_TRANSLATE_KEY:
-                                    TranslateActivity.getInstance().updateInfoFromSMS(stringBuilder.toString());
-                                    break;
-                                default:
-                                    break;
-                            }
+                        switch (result) {
+                            case Constants.SHARED_PREF_WIKIPEDIA_KEY:
+                                WikipediaActivity.getInstance().updateInfoFromSMS(stringBuilder.toString());
+                                break;
+                            case Constants.SHARED_PREF_BBC_KEY:
+                                BBCActivity.getInstance().updateInfoFromSMS(stringBuilder.toString());
+                                break;
+                            case Constants.SHARED_PREF_DIRECTION_KEY:
+                                DirectionActivity.getInstance().updateInfoFromSMS(stringBuilder.toString());
+                                break;
+                            case Constants.SHARED_PREF_WEATHER_KEY:
+                                WeatherActivity.getInstance().updateInfoFromSMS(stringBuilder.toString());
+                                break;
+                            case Constants.SHARED_PREF_FOURSQUARE_KEY:
+                                FoursquareActivity.getInstance().updateInfoFromSMS(stringBuilder.toString());
+                                break;
+                            case Constants.SHARED_PREF_TRANSLATE_KEY:
+                                TranslateActivity.getInstance().updateInfoFromSMS(stringBuilder.toString());
+                                break;
+                            default:
+                                break;
                         }
                     } catch (Exception e) {
                         Log.d("SMSHandler", "Excpetion " + e);

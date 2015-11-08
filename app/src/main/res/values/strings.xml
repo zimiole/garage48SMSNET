@@ -107,6 +107,7 @@
     <string name="title_activity_bbc">BBC News Feed</string>
     <string name="title_activity_direction">Directions</string>
     <string name="title_activity_foursquare">Foursquare Search</string>
+    <string name="title_activity_emergency">EmergencyActivity</string>
 
     <!-- Dialogs Strings -->
     <string name="error">Error</string>
