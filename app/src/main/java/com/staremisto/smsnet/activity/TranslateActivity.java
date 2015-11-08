@@ -1,5 +1,6 @@
 package com.staremisto.smsnet.activity;
 
+import android.app.ProgressDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -27,6 +28,7 @@ public class TranslateActivity extends AppCompatActivity {
     private TextView response;
     private TextView fromlanguage;
     private ImageView close;
+    private ProgressDialog progressDialog;
     public static TranslateActivity getInstance() {
         if (instance == null)
             return new TranslateActivity();
@@ -39,6 +41,10 @@ public class TranslateActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        progressDialog = new ProgressDialog(TranslateActivity.this,R.style.MyTheme);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setCancelable(false);
+        progressDialog.setProgressStyle(android.R.style.Widget_ProgressBar_Small);
         close = (ImageView) findViewById(R.id.search_close_btn);
         close.setVisibility(View.INVISIBLE);
         fromlanguage = (TextView) findViewById(R.id.from_language);
@@ -85,8 +91,7 @@ public class TranslateActivity extends AppCompatActivity {
                                     Constants.ATTR_TRANSLATE.concat((prefs.getString("lat", ""))).concat("|").concat(prefs.getString("lon", "")).concat("|").concat(search.getText().toString()),
                                     null,
                                     null);
-
-                            //progressBar.setVisibility(View.VISIBLE);
+                            progressDialog.show();
 
                             if (getCurrentFocus() != null) {
                                 InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
@@ -107,7 +112,7 @@ public class TranslateActivity extends AppCompatActivity {
         instance = this;
     }
     public void updateInfoFromSMS(String text) {
-
+        progressDialog.dismiss();
         response.setText(text);
 
         /*progressBar.setVisibility(View.GONE);
