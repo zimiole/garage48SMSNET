@@ -59,7 +59,13 @@ public class PageFragment extends Fragment {
 
     public void updateInfoFromSMS(String text) {
         List<RouteInstruction> array= new ArrayList<>();
-        String[] textArray = text.split("\\|");
+        String[] textArray;
+        if(text.contains("¡")){
+            textArray= text.split("¡");
+        }else{
+            textArray= text.split("\\|");
+        }
+
         for (String inst : textArray) {
             String[] arr = inst.split(";");
 

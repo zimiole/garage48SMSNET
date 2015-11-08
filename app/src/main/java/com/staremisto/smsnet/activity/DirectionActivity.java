@@ -84,7 +84,7 @@ public class DirectionActivity extends AppCompatActivity {
                             editor.putInt(Constants.SHARED_PREF_ACTIVITY_TYPE_KEY, Constants.SHARED_PREF_DIRECTION_KEY);
                             editor.apply();
                             SmsManager smsManager = SmsManager.getDefault();
-                            switch(viewPager.getCurrentItem()){
+                            switch(tabLayout.getSelectedTabPosition()){
                                 case 0:
                                     smsManager.sendTextMessage(Constants.SERVER_PHONE,
                                             null,
