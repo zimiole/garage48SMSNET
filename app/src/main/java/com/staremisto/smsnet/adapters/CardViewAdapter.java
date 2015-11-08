@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.staremisto.smsnet.Constants;
 import com.staremisto.smsnet.R;
+import com.staremisto.smsnet.activity.BBCActivity;
 import com.staremisto.smsnet.activity.DirectionActivity;
 import com.staremisto.smsnet.activity.FoursquareActivity;
 import com.staremisto.smsnet.activity.TranslateActivity;
@@ -34,19 +35,23 @@ import com.staremisto.smsnet.activity.WikipediaActivity;
 public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.CardViewViewHolder> {
 
     private final String[] titles = {
-            "Food & Drink",
+            "Food & Drinks",
             "Public Transportation",
             "Information request",
             "Weather Forecast",
-            "Language"
+            "Language",
+            "Wifi",
+            "Latest News"
     };
 
     private final String[] descriptions = {
             "Foursquare",
             "Google Maps",
             "Wikipedia",
-            "AccuWeather",
-            "Google Translate"
+            "OpenWeather",
+            "Google Translate",
+            "Closest Wifi spots",
+            "BBC News Feed"
     };
 
     protected Context mContext;
@@ -78,6 +83,7 @@ public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.CardVi
             case 0:
                 holder.ivTitle.setImageResource(R.drawable.ic_foursquare_white_36dp);
 
+                holder.toolbar.setVisibility(View.VISIBLE);
                 holder.toolbar.inflateMenu(R.menu.menu_card_weather);
                 holder.toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
                     @Override
@@ -118,19 +124,35 @@ public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.CardVi
                     }
                 });
 
-                intent = new Intent(mContext, FoursquareActivity.class);
+                holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mContext.startActivity(new Intent(mContext, FoursquareActivity.class));
+                    }
+                });
                 break;
             case 1:
                 holder.ivTitle.setImageResource(R.drawable.ic_map_icon);
-                intent = new Intent(mContext, DirectionActivity.class);
+                holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mContext.startActivity(new Intent(mContext, DirectionActivity.class));
+                    }
+                });
                 break;
             case 2:
                 holder.ivTitle.setImageResource(R.drawable.ic_wikipedia_white_36dp);
-                intent = new Intent(mContext, WikipediaActivity.class);
+                holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mContext.startActivity(new Intent(mContext, WikipediaActivity.class));
+                    }
+                });
                 break;
             case 3:
                 holder.ivTitle.setImageResource(R.drawable.ic_weather_partlycloudy_white_36dp);
 
+                holder.toolbar.setVisibility(View.VISIBLE);
                 holder.toolbar.inflateMenu(R.menu.menu_card_weather);
                 holder.toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
                     @Override
@@ -171,24 +193,52 @@ public class CardViewAdapter extends RecyclerView.Adapter<CardViewAdapter.CardVi
                     }
                 });
 
-                intent = new Intent(mContext, WeatherActivity.class);
+                holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mContext.startActivity(new Intent(mContext, WeatherActivity.class));
+                    }
+                });
                 break;
             case 4:
                 holder.ivTitle.setImageResource(R.drawable.ic_translate_icon);
-                intent = new Intent(mContext, TranslateActivity.class);
+                holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mContext.startActivity(new Intent(mContext, TranslateActivity.class));
+                    }
+                });
                 break;
+            case 5:
+                holder.ivTitle.setImageResource(R.drawable.ic_wifi_white_36dp);
+                holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(mContext)
+                                .setTitle(R.string.warning)
+                                .setMessage(R.string.you_sould_have_premium_account)
+                                .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int which) {
+                                        dialog.dismiss();
+                                    }
+                                });
+
+                        builder.show();
+                    }
+                });
+                break;
+            case 6:
+                holder.ivTitle.setImageResource(R.drawable.ic_bbc);
+                holder.linearLayout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        mContext.startActivity(new Intent(mContext, BBCActivity.class));
+                    }
+                });
             default:
                 break;
         }
-
-
-        final Intent finalIntent = intent;
-        holder.linearLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mContext.startActivity(finalIntent);
-            }
-        });
     }
 
     @Override

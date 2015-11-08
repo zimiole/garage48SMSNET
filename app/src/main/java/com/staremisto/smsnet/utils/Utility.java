@@ -99,6 +99,8 @@ public class Utility {
                 return R.drawable.art_light_clouds;
             case "Scattered clouds":
                 return R.drawable.art_clouds;
+            case "Clouds":
+                return R.drawable.art_clouds;
             case "Broken clouds":
                 return R.drawable.art_clouds;
             case "Shower rain":
@@ -112,7 +114,7 @@ public class Utility {
             case "Mist":
                 return R.drawable.art_fog;
             default:
-                return -1;
+                return R.drawable.art_clear;
         }
     }
 
