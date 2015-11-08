@@ -54,15 +54,15 @@ public class DirectionsCardViewAdapter extends RecyclerView.Adapter<DirectionsCa
         holder.tvDistance.setText(titles.get(position).getDistance());
         holder.tvTime.setText(titles.get(position).getDuration());
         if(titles.get(position).getInstruction().startsWith("Turn left")){
-            holder.arrowView.setImageResource(R.drawable.ic_arrow_left_black_18dp);
+            holder.arrowView.setImageResource(R.drawable.ic_arrow_left_black_24dp);
         }else if(titles.get(position).getInstruction().startsWith("Turn right")){
-            holder.arrowView.setImageResource(R.drawable.ic_arrow_right_black_18dp);
+            holder.arrowView.setImageResource(R.drawable.ic_arrow_right_black_24dp);
         }else if(titles.get(position).getInstruction().startsWith("Slight left")){
-            holder.arrowView.setImageResource(R.drawable.ic_arrow_top_left_black_18dp);
+            holder.arrowView.setImageResource(R.drawable.ic_arrow_top_left_black_24dp);
         }else if(titles.get(position).getInstruction().startsWith("Slight right")){
-            holder.arrowView.setImageResource(R.drawable.ic_arrow_top_right_black_18dp);
+            holder.arrowView.setImageResource(R.drawable.ic_arrow_top_right_black_24dp);
         }else{
-            holder.arrowView.setImageResource(R.drawable.ic_arrow_up_black_18dp);
+            holder.arrowView.setImageResource(R.drawable.ic_arrow_up_black_24dp);
         }
 
 

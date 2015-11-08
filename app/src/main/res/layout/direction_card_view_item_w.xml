@@ -29,15 +29,12 @@
 
         <TextView
             android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_marginBottom="@dimen/card_margin_from_edge_screen"
             android:paddingBottom="8dp"
-            android:paddingEnd="@dimen/card_content_padding"
-            android:paddingLeft="@dimen/card_content_padding"
-            android:paddingRight="@dimen/card_content_padding"
-            android:paddingStart="@dimen/card_content_padding"
+            android:layout_margin="10dp"
             android:paddingTop="8dp"
             android:textSize="@dimen/card_header_text_size"
             tools:text="TEST TEXT "
@@ -51,7 +48,8 @@
             android:id="@+id/tv_distance"
             android:layout_alignParentBottom="false"
             android:layout_below="@+id/tv_title"
-            android:layout_alignLeft="@+id/tv_title" />
+            android:layout_alignLeft="@+id/tv_title"
+            android:layout_marginBottom="4dp"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -60,7 +58,8 @@
             android:text="Small Text"
             android:id="@+id/tv_time"
             android:layout_below="@+id/tv_title"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignRight="@+id/tv_title"
+            android:layout_marginBottom="4dp"/>
 
 
     </RelativeLayout>
