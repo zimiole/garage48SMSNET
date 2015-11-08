@@ -53,6 +53,7 @@ public class IncomingSMS extends BroadcastReceiver {
                                 break;
                             case Constants.SHARED_PREF_DIRECTION_KEY:
                                 DirectionActivity.getInstance().updateInfoFromSMS(stringBuilder.toString());
+                                break;
 
                             case Constants.SHARED_PREF_WEATHER_KEY:
                                 WeatherActivity.getInstance().updateInfoFromSMS(stringBuilder.toString());
