@@ -33,11 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
     private final int PICK_CONTACT = 555;
 
-    private RecyclerView mRecyclerView;
-    private CardViewAdapter mAdapter;
-    private RecyclerView.LayoutManager layoutManager;
     private TextView locationCoordinates;
-    private Button btnSendTo;
     private Button btnEmergency;
 
     @Override
@@ -48,10 +44,10 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("");
 
-        mRecyclerView = (RecyclerView) findViewById(R.id.cardList);
-        mAdapter = new CardViewAdapter(getApplicationContext(), R.layout.main_row);
+        RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.cardList);
+        CardViewAdapter mAdapter = new CardViewAdapter(getApplicationContext(), R.layout.main_row);
         locationCoordinates = (TextView) findViewById(R.id.tv_coordinates);
-        btnSendTo = (Button) findViewById(R.id.btn_send_to);
+        Button btnSendTo = (Button) findViewById(R.id.btn_send_to);
         btnEmergency = (Button) findViewById(R.id.btn_emergency);
 
         btnSendTo.setOnClickListener(new View.OnClickListener() {
@@ -132,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
                 if (resultCode == Activity.RESULT_OK) {
 
                     String cNumber = null;
-                    String cName = null;
+                    String cName;
                     Uri contactData = data.getData();
                     Cursor c = managedQuery(contactData, null, null, null, null);
                     if (c.moveToFirst()) {
