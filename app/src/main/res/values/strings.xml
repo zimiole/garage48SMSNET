@@ -104,9 +104,13 @@
     <string name="title_activity_weather">Weather</string>
 
     <string name="title_activity_translate">Translate</string>
-    <string name="title_activity_bbc">BBCActivity</string>
+    <string name="title_activity_bbc">BBC News Feed</string>
     <string name="title_activity_direction">Directions</string>
     <string name="title_activity_foursquare">Foursquare Search</string>
     <string name="title_activity_emergency">EmergencyActivity</string>
+
+    <!-- Dialogs Strings -->
     <string name="error">Error</string>
+    <string name="warning">Warning</string>
+    <string name="you_sould_have_premium_account">You should have premium account to access this feature.</string>
 </resources>

@@ -18,7 +18,8 @@
 
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="8dp">
 
 
         <TextView
@@ -26,16 +27,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:layout_marginBottom="@dimen/card_margin_from_edge_screen"
+            android:fontFamily="sans-serif-condensed"
             android:paddingBottom="8dp"
             android:paddingEnd="@dimen/card_content_padding"
             android:paddingLeft="@dimen/card_content_padding"
             android:paddingRight="@dimen/card_content_padding"
             android:paddingStart="@dimen/card_content_padding"
             android:paddingTop="8dp"
+            android:textAppearance="?android:textAppearanceLarge"
             android:textSize="@dimen/card_header_text_size"
-            tools:text="TEST TEXT sdfbdsiufbdsfibdsfbidsbfbidbsfids f sdfhidhsif udsfhih dsifisd fsi df" />
-
+            tools:text="Some title text" />
 
     </FrameLayout>
 
