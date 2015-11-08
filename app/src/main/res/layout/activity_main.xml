@@ -73,7 +73,8 @@
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
             <Button
-                style="?attr/buttonTint"
+                android:id="@+id/btn_send_to"
+                style="?attr/colorButtonNormal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -81,6 +82,7 @@
                 android:textColor="@color/oldPrimary" />
 
             <Button
+                android:id="@+id/btn_emergency"
                 style="?attr/colorButtonNormal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
